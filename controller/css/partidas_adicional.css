@@ -1,0 +1,143 @@
+/* ====== CONTENEDOR GENERAL ====== */
+.stats-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* ====== CUADRÍCULA DE ESTADÍSTICAS ====== */
+.player-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+/* ====== CADA TARJETA ====== */
+.stat-item {
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.85));
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: all 0.25s ease;
+    transform-origin: center;
+    position: relative;
+}
+
+.stat-item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: radial-gradient(circle at top, rgba(255, 215, 0, 0.15), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 22px rgba(255, 215, 0, 0.25);
+}
+
+.stat-item:hover::before {
+    opacity: 1;
+}
+
+/* ====== TEXTOS DE ESTADÍSTICAS ====== */
+.stat-label {
+    font-size: 0.95rem;
+    color: #ffd700;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.25);
+}
+
+.stat-value {
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 800;
+    display: block;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ====== ESTADOS DE PARTIDA ====== */
+.estado-en-progreso { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.5); }
+.estado-finalizada { color: #00ff66; text-shadow: 0 0 8px rgba(0, 255, 102, 0.4); }
+.estado-abierta { color: #00ffff; text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+.estado-cerrada { color: #ff3333; text-shadow: 0 0 8px rgba(255, 51, 51, 0.5); }
+.estado-en-juego { color: #ff9900; text-shadow: 0 0 8px rgba(255, 153, 0, 0.5); }
+
+/* ====== PARTICIPANTES ====== */
+.participantes {
+    font-size: 0.9rem;
+    color: #ddd;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 8px auto 0;
+    transition: color 0.3s ease;
+}
+
+.participantes:hover {
+    white-space: normal;
+    overflow: visible;
+    color: #fff;
+}
+
+/* ====== PUNTOS ====== */
+.puntos {
+    font-weight: bold;
+    color: #00ff6a;
+    text-shadow: 0 0 10px rgba(0, 255, 106, 0.5);
+    letter-spacing: 0.5px;
+}
+
+/* ====== MEDIA QUERIES ====== */
+@media (max-width: 1024px) {
+    .stats-container {
+        width: 95%;
+        font-size: 0.95em;
+    }
+
+    .participantes {
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-container {
+        width: 100%;
+        font-size: 0.85em;
+    }
+
+    .stat-item {
+        padding: 12px;
+    }
+
+    .participantes {
+        max-width: 90px;
+    }
+}
+
+/* ====== ACCESIBILIDAD ====== */
+.btn-volver:focus {
+    outline: 2px solid #ffd700;
+    outline-offset: 3px;
+}
+
+.table-row:focus-within {
+    outline: 2px solid #ffd700;
+    outline-offset: -2px;
+}

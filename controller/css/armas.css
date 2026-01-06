@@ -1,0 +1,367 @@
+/* ======= VIDEO DE FONDO ======= */
+body {
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Contenedor del iframe de YouTube */
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-fondo iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120vw;
+    height: 120vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: none;
+}
+
+/* Contenedor principal */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    padding-top: 80px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Título esquina superior izquierda */
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+/* Título central */
+.contenedor > h2 {
+    font-size: 4rem;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* Menú principal */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    font-size: 1.5rem;
+    min-height: 220px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #810909;
+}
+
+/* Puntos y barra de progreso */
+.puntos {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+.usuario-info {
+    text-align: right;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+progress {
+    width: 200px;
+    height: 20px;
+}
+
+/* Imagen lateral */
+.imagen-lateral {
+    position: absolute;
+    left: 30px;
+    bottom: 50px;
+    width: 400px;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+}
+
+/* Fondo oscuro semitransparente */
+.armas-wrapper {
+    background: rgba(83, 79, 79, 0.6);
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1100px;
+    box-sizing: border-box;
+}
+
+/* Contenedor de armas */
+.armas-container {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Tarjetas de armas */
+.arma {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 12px 10px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+    min-height: 220px;
+    transition: transform 0.25s ease, background 0.25s ease;
+    flex: 0 0 auto;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.arma:hover {
+    background: rgba(50, 0, 0, 0.7);
+    transform: scale(1.05);
+}
+
+.arma[data-locked="1"] img {
+    filter: brightness(0.65) saturate(0.9);
+}
+
+/* Texto del arma */
+.arma p {
+    font-size: 0.95rem;
+    font-weight: 900;
+    margin: 6px 0 0 0;
+}
+
+/* Imagen del arma */
+.arma img {
+    width: 100%;
+    max-width: 140px;
+    height: 120px;
+    margin-bottom: 8px;
+    object-fit: contain;
+    display: block;
+}
+
+/* Overlay para armas bloqueadas */
+.lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 900;
+    text-align: center;
+}
+
+.lock-icon {
+    font-size: 28px;
+    color: #ffd700;
+}
+.lock-text {
+    font-size: 0.95rem;
+    color: #ffd700;
+}
+
+/* Título del armamento */
+.page-title-armamento {
+    font-size: 4rem;
+    margin: 0;
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 3;
+    color: #ffd700;
+    white-space: nowrap;
+}
+
+/* Botón "Volver" */
+.btn-volver {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 6px 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.15s ease, transform 0.08s ease;
+    position: absolute;
+    top: 18px;
+    left: 30px;
+    z-index: 4;
+}
+
+.btn-volver:hover {
+    color: #d30000;
+    transform: translateY(-2px);
+}
+
+/* ========================= */
+/* ==== MODO RESPONSIVO ==== */
+/* ========================= */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.4rem;
+        top: 15px;
+        left: 20px;
+    }
+
+    .page-title-armamento {
+        font-size: 3rem;
+        top: 30px;
+    }
+
+    .imagen-lateral {
+        width: 280px;
+        bottom: 20px;
+    }
+
+    .armas-wrapper {
+        padding: 15px 20px;
+        max-width: 90%;
+    }
+
+    .arma {
+        width: 150px;
+        min-height: 200px;
+    }
+
+    .arma img {
+        height: 100px;
+    }
+}
+
+/* Celulares (≤ 600px) */
+@media (max-width: 600px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .video-fondo iframe {
+        width: 160vw;
+        height: 160vh;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        top: 15px;
+        left: 15px;
+    }
+
+    .contenedor > h2,
+    .page-title-armamento {
+        font-size: 2rem;
+        top: 55px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .puntos {
+        top: 100px;
+        right: 15px;
+        align-items: flex-end;
+    }
+
+    .usuario-info {
+        font-size: 0.9rem;
+    }
+
+    .imagen-lateral {
+        position: static;
+        width: 90%;
+        margin: 30px auto 0;
+    }
+
+    .armas-wrapper {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    .armas-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .arma {
+        width: 85%;
+        min-height: 180px;
+        margin-bottom: 10px;
+    }
+
+    .arma img {
+        max-width: 120px;
+        height: 100px;
+    }
+
+    .arma p {
+        font-size: 0.9rem;
+    }
+
+    .btn-volver {
+        font-size: 1rem;
+        top: 26px;
+        left: 16px;
+    }
+}

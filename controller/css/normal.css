@@ -1,0 +1,199 @@
+/* ====== ESTRUCTURA GENERAL ====== */
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    background-image: url("../img/ciudad.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(1px);
+}
+
+/* ====== BOTÓN VOLVER ====== */
+.btn-volver {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 8px 14px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+    color: #ff0000;
+    background: rgba(0, 0, 0, 0.65);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+    .btn-volver { 
+        font-size: 1rem; 
+        top: 26px; 
+        left: 16px; 
+    }
+}
+
+/* ====== CONTENEDOR PRINCIPAL ====== */
+.contenedor-salas {
+    text-align: center;
+    padding: 90px 20px 40px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.contenedor-salas h1 {
+    font-size: 2.4rem;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
+    background: linear-gradient(90deg, #ffffff, #0099ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ====== LISTA DE SALAS ====== */
+.lista-salas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* ====== TARJETAS DE SALAS ====== */
+.sala-card {
+    position: relative;
+    width: 270px;
+    border-radius: 14px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    transition: all 0.25s ease;
+    transform-origin: center;
+}
+
+.sala-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.65);
+    border-color: rgba(0, 123, 255, 0.6);
+}
+
+/* Imagen de la sala */
+.sala-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.sala-card:hover img {
+    transform: scale(1.07);
+}
+
+/* ====== INFO DE SALA ====== */
+.sala-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.3s ease;
+}
+
+.sala-card:hover .sala-info {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.sala-info h3 {
+    font-size: 1.1rem;
+    font-weight: 900;
+    margin: 0 0 6px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.sala-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #d4d4d4;
+}
+
+/* ====== BOTÓN UNIRSE ====== */
+.btn-unirse {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    font-weight: 900;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(90deg, #2b8cff 0%, #0066ff 100%);
+    box-shadow: 0 6px 18px rgba(3, 102, 255, 0.18);
+    transition: all 0.25s ease;
+}
+
+.btn-unirse:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(3, 102, 255, 0.35);
+    filter: brightness(1.08);
+}
+
+.btn-unirse:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(3, 102, 255, 0.18);
+    filter: brightness(0.95);
+}
+
+/* ====== ESTADO SIN SALAS ====== */
+.sin-salas {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 40px;
+    color: #ff6666;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+    .sala-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .sala-card {
+        width: 90%;
+    }
+
+    .contenedor-salas h1 {
+        font-size: 1.8rem;
+    }
+}
